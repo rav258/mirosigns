@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="fragments :: style"/>
+</head>
+
+<body>
+
+<div class="container-fluid" style="margin-top:80px">
+    <div th:replace="fragments/header-top::header-top"></div>
+    <div th:replace="fragments :: header"/>
+    <div th:replace="fragments/slider :: slider"/>
+    <div th:replace="fragments :: promo"/>
+
+    <!-- Doesn't work :-( -->
+    <div th:include="fragments/featuredProducts :: featuredProducts"/>
+    <!-- Doesn't work :-( -->
+
+    <div th:replace="fragments/Testimonials :: testimonials"/>
+    <div th:replace="fragments/freeShippingBlock :: freeShippingBlock"/>
+    <div th:replace="fragments/brand :: brand"/>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments :: js_scripts"/>
+</body>
+
+</html>

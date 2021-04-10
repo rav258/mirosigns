@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="fragments :: style"/>
+</head>
+<body>
+<div class="container-fluid" style="margin-top:80px">
+    <div th:replace="fragments/header-top::header-top"></div>
+</div>
+
+
+<div th:replace="fragments/featuredProducts :: featuredProducts"/>
+<div th:replace="fragments/footer :: footer"/>
+
+
+<div th:replace="fragments :: js_scripts"/>
+</body>
+</html>

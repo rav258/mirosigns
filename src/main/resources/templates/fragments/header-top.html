@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>header-top</title>
+</head>
+<body>
+<th:block th:fragment="header-top">
+    <div class="container-fluid" style="margin-top:80px">
+        <header id="header_area">
+            <div class="header_top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="hdr_tp_left">
+                                <div class="call_area">
+                                    <span class="single_con_add"><i class="fa fa-phone"></i> +447411498136</span>
+                                    <span class="single_con_add"><i class="fa fa-envelope"></i> <a href=""
+                                                                                                   class="__cf_email__"
+                                                                                                   data-cfemail="">email</a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6">
+                            <ul class="hdr_tp_right text-right">
+                                <li class="account_area"><a th:href="@{/}"><i class="fa fa-home"></i> Home</a></li>
+                                <li class="account_area"><a th:href="@{/login}"><i class="fa fa-user"></i> My
+                                    Account</a></li>
+                                <li class="account_area"><a th:href="@{/products/list}"><i class="fa fa-picture-o"></i>
+                                    Products</a></li>
+                                <li class="account_area"><a th:href="@{/admin/list}"><i class="fa fa-folder-open"></i>
+                                    Admin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</th:block>
+
+</body>
+</html>

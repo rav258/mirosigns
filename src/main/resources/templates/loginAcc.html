@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <div th:replace="fragments :: style"/>
+</head>
+
+<body>
+
+<div class="container-fluid" style="margin-top:80px">
+  <div th:replace="fragments/header-top::header-top"></div>
+  <div th:replace="fragments :: header"/>
+
+  <!-- Login Page -->
+  <div class="login_page_area">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="create_account_area caa_pdngbtm">
+            <h2 class="caa_heading">Create an account</h2>
+            <div class="caa_form_area">
+              <p>Please enter your email address to create an account.</p>
+              <div class="caa_form_group">
+                <div class="caf_form">
+                  <label>Email address</label>
+                  <div class="input-area"><input type="email" /></div>
+                </div>
+                <button class="btn btn-default acc_btn" type="submit" id="acc_Create">
+                  <span> <i class="fa fa-user btn_icon"></i> Create an account </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="create_account_area">
+            <h2 class="caa_heading">Already registered?</h2>
+            <div class="caa_form_area">
+              <div class="caa_form_group">
+                <div class="login_email">
+                  <label>Email address</label>
+                  <div class="input-area"><input type="email" /></div>
+                </div>
+                <div class="login_password">
+                  <label>Password</label>
+                  <div class="input-area"><input type="password" /></div>
+                </div>
+                <p class="forgot_password">
+                  <a href="#" title="Recover your forgotten password" rel="">Forgot your password?</a>
+                </p>
+                <button type="submit" id="acc_Login" class="btn btn-default acc_btn">
+                  <span> <i class="fa fa-lock btn_icon"></i> Sign in </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Login Form -->
+  <form th:action="@{/authenticateTheUser}"
+        method="POST" class="form-horizontal">
+
+    <!-- Place for messages: error, alert etc ... -->
+    <div class="form-group">
+      <div class="col-xs-15">
+        <div>
+
+          <!-- Check for login error -->
+
+          <div th:if="${param.error}">
+
+            <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+              Invalid username and password.
+            </div>
+
+          </div>
+
+          <!-- Check for logout -->
+
+          <div th:if="${param.logout}">
+
+            <div class="alert alert-success col-xs-offset-1 col-xs-10">
+              You have been logged out.
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- User name -->
+    <div style="margin-bottom: 25px" class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+      <input type="text" name="username" placeholder="username" class="form-control">
+    </div>
+
+    <!-- Password -->
+    <div style="margin-bottom: 25px" class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+      <input type="password" name="password" placeholder="password" class="form-control">
+    </div>
+
+    <!-- Login/Submit Button -->
+    <div style="margin-top: 10px" class="form-group">
+      <div class="col-sm-6 controls">
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </div>
+    <!-- Back to home page-->
+    <a th:href="@{/}" class="btn btn-warning col-2">Back to Homepage</a>
+
+  </form>
+
+
+
+
+</div>
+<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments :: js_scripts"/>
+</body>
+
+</html>

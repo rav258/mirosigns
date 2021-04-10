@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="fragments :: style"/>
+</head>
+<body>
+<div th:replace="fragments/header-top::header-top"></div>
+<div class="container">
+
+
+    <hr>
+
+    <p class="h4 mb-4">Create Product</p>
+
+    <form action="#" th:action="@{/products/save}"
+          th:object="${products}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+
+        <input type="text" th:field="*{name}"
+               class="form-control mb-4 col-4" placeholder="Title" required>
+
+        <input type="text" th:field="*{description}"
+               class="form-control mb-4 col-4" placeholder="Description" required>
+
+        <input type="file" th:field="*{image}"
+               class="form-control mb-4 col-4" placeholder="Image" required>
+
+        <input type="number" th:field="*{price}"
+               class="form-control mb-4 col-4" placeholder="Price in $" required min="0">
+
+        <button type="submit" class="btn btn-success col-2">Save</button>
+
+    </form>
+
+    <hr>
+
+    <a th:href="@{/products/list}" class="btn btn-warning col-2">Back to Products List</a>
+
+</div>
+
+</body>
+</html>

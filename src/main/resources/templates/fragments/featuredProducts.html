@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="fragments :: style"/>
+</head>
+<body>
+<th:block th:fragment="featuredProducts">
+    <section id="featured_product" class="featured_product_area section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section_title">
+                        <h2> <span> Products</span></h2>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="" style="flex-wrap: wrap; display: flex; justify-content: space-evenly">
+                    <div class="single_product" th:each="products : ${products}" style=" margin-left: 30px">
+                        <div class="product_image">
+                            <img th:src="@{/images/{image} (image=${products.image})}"
+                                 style="width: auto;height: 250px;">
+                            <div class="box-content">
+                                <a href="#"><i class="fa fa-heart-o"></i></a>
+                                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                <a href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="product_btm_text">
+                            <h4><a th:href="@{/list/}+${products.id}" th:text="${products.name}"></a></h4>
+                            <span class="price" th:text="('£ ')+${products.price}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+<div th:replace="fragments :: js_scripts"/>
+</body>
+</html>
