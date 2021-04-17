@@ -65,7 +65,7 @@ public class AdminController {
         productService.save(theProduct);
 
         // use a redirect to prevent duplicate submissions
-        return "redirect:/products/list";
+        return "redirect:/admin/list";
     }
 
 

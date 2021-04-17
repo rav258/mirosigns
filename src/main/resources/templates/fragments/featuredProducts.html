@@ -6,7 +6,7 @@
     <div th:replace="fragments :: style"/>
 </head>
 <body>
-<th:block th:fragment="featuredProducts">
+<div th:fragment="featuredProducts">
     <section id="featured_product" class="featured_product_area section_padding">
         <div class="container">
             <div class="row">
@@ -25,7 +25,7 @@
                                  style="width: auto;height: 250px;">
                             <div class="box-content">
                                 <a href="#"><i class="fa fa-heart-o"></i></a>
-                                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                <a  th:href="@{/cart/add/{productId} (productId=${products.id})}"><i class="fa fa-cart-plus"></i></a>
                                 <a href="#"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </section>
-</th:block>
+</div>
 <div th:replace="fragments :: js_scripts"/>
 </body>
 </html>
